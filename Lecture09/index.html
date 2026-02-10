@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LECTURE 09</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .main {
+            width: 1000px;
+            height: 500px;
+            background: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+
+    </div>
+    <script>
+        let mainElement = document.querySelector('.main')
+        mainElement.addEventListener('mouseenter', () => {
+            mainElement.style.background = "green"
+        })
+        mainElement.addEventListener('mouseleave', () => {
+            mainElement.style.background = "red"
+        })
+
+    </script>
+</body>
+
+</html>

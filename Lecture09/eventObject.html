@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main {
+            width: 1000px;
+            height: 500px;
+            margin: auto;
+            border: 2px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <h1>Welcome To Ws Cube Tech</h1>
+        <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore quam iure, quisquam excepturi reiciendis
+            fugit, iste ab unde delectus eveniet tempora cum dolores molestiae odit? Maiores nesciunt quo laborum
+            aliquam.
+        </p>
+        <button>
+            Read More
+        </button>
+    </div>
+    <script>
+        let mainElement = document.querySelector('.main')
+        let btn = document.querySelector('button')
+        mainElement.addEventListener('click', (e) => {
+            // console.log(e.type);
+            // console.log(e.target.tagName);
+            console.log('ssdsdas');
+            
+            // if(e.target.tagName == "BUTTON"){
+            //     alert("Hello")
+            // }
+
+        })
+        btn.addEventListener('click', (e) => {
+            console.log('BTN ELEMNEt');
+            e.stopPropagation()
+
+        })
+    </script>
+</body>
+
+</html>
