@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button {
+            background-color: black;
+            color: white;
+            outline: none;
+            border: none;
+            border-radius: 10px;
+            padding: 10px 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button>Change Color</button>
+    <script>
+        let body = document.querySelector('body')
+        let btn = document.querySelector('button')
+        btn.addEventListener('click', () => {
+            let redCode = Math.floor(Math.random() * 255);
+            let greenCode = Math.floor(Math.random() * 255);
+            let blueCode = Math.floor(Math.random() * 255);
+            body.style.backgroundColor = `rgb(${redCode},${greenCode},${blueCode})`
+        })
+    </script>
+
+    <!-- <button id="btn1">Red</button>
+    <button id="btn2">Green</button>
+    <button id="btn3">Blue</button>
+    <button id="btn4">Black</button>
+    <button id="btn5">Yellow</button>
+    <button id="btn6">White</button>
+
+    <script>
+        let body = document.querySelector('body')
+        let btn1 = document.querySelector('#btn1')
+        let btn2 = document.querySelector('#btn2')
+        let btn3 = document.querySelector('#btn3')
+        let btn4 = document.querySelector('#btn4')
+        let btn5 = document.querySelector('#btn5')
+        let btn6 = document.querySelector('#btn6')
+        btn1.addEventListener('click', () => {
+            body.style.backgroundColor = 'red'
+        })
+        btn2.addEventListener('click', () => {
+            body.style.backgroundColor = 'green'
+        })
+        btn3.addEventListener('click', () => {
+            body.style.backgroundColor = 'blue'
+        })
+        btn4.addEventListener('click', () => {
+            body.style.backgroundColor = 'black'
+        })
+        btn5.addEventListener('click', () => {
+            body.style.backgroundColor = 'yellow'
+        })
+        btn6.addEventListener('click', () => {
+            body.style.backgroundColor = 'white'
+        })
+    </script> -->
+</body>
+
+</html>

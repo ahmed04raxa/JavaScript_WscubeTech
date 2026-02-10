@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* .dark {
+            background-color: black;
+            color: white;
+        }
+
+        .light {
+            background-color: white;
+            color: black;
+        } */
+    </style>
+</head>
+
+<body>
+    <button id="dark">Dark Theme</button>
+    <button id="light">Light Theme</button>
+    <h1>Welcome To Ws Cube Tech</h1>
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit aut sapiente impedit explicabo maxime quos
+        reprehenderit repellendus labore libero, velit atque a quas distinctio tempore error! Quidem sequi, rerum
+        nostrum amet minima iure nemo neque architecto magnam omnis rem hic?
+    </p>
+
+    <script>
+        let dark = document.querySelector('#dark')
+        let light = document.querySelector('#light')
+        //let body = document.querySelector('body')
+        dark.addEventListener('click', () => {
+            document.body.style.backgroundColor = '#222'
+            document.body.style.color = 'white'
+        })
+        light.addEventListener('click', () => {
+            document.body.style.backgroundColor = '#cccc'
+            document.body.style.color = 'black'
+        })
+    </script>
+
+</body>
+
+</html>

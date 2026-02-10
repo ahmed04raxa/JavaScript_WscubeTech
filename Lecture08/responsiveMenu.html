@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        header {
+            display: flex;
+            box-shadow: 0px 2px 10px 0px #ccc;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+            padding: 0px 50px;
+            height: 60px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            color: black;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .m-icon {
+            display: none;
+        }
+
+        @media only screen and (min-width:200px) and (max-width:695px) {
+            header nav {
+                position: fixed;
+                top: 0px;
+                background-color: #ccc;
+                width: 30%;
+                padding: 10px;
+                left: 0px;
+                height: 100vh;
+                left: -100%;
+                transition: 0.5s;
+            }
+
+            header nav ul {
+                flex-direction: column;
+                margin-top: 30px
+            }
+
+            .m-icon {
+                display: flex;
+                cursor: pointer;
+            }
+
+            .showMenu {
+                left: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <figure style="background-color: black; cursor: pointer;">
+            <img src="https://www.wscubetech.com/images/ws-cube-white-logo.svg" alt="logo">
+        </figure>
+        <nav>
+            <ul>
+                <li><a href="">Home</a></li>
+                <li><a href="">About Us</a></li>
+                <li><a href="">Contact Us</a></li>
+                <li><a href="">Gallery</a></li>
+                <li><a href="">Sign Up</a></li>
+            </ul>
+        </nav>
+        <i class="fa-solid fa-bars m-icon"></i>
+    </header>
+    <script>
+        let mIcon = document.querySelector(".m-icon")
+        let header = document.querySelector("nav")
+
+        mIcon.addEventListener("click", () => {
+            mIcon.classList.toggle('fa-bars')
+            mIcon.classList.toggle('fa-xmark')
+            header.classList.toggle('showMenu')
+        })
+
+    </script>
+</body>
+
+</html>
