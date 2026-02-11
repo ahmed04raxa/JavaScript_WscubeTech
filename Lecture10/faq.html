@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+            padding: 50px 0px;
+        }
+
+        .faqMid {
+            max-width: 1000px;
+            margin: auto;
+            transition: 0.5s;
+            cursor: pointer;
+        }
+
+        .faqItem {
+            border: 1px solid #ccc;
+            margin-bottom: 20px;
+
+        }
+
+        .faqItem h2 {
+            font-size: 16px;
+            background-color: aqua;
+            padding: 10px;
+        }
+
+        .faqItem h2 span {
+            position: absolute;
+            right: 0;
+            cursor: pointer;
+        }
+
+        .ans {
+            padding: 10px;
+            display: none;
+
+        }
+
+        .showAns {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>FAQs About Liecester Taxi Service</h1>
+    <div class="faqMid">
+        <div class="faqItem">
+            <h2>1 This Is A Question <span>+</span></h2>
+            <div class="ans">
+                1 How do I book a taxi?
+            </div>
+            <h2>2 This Is A Question<span>+</span></h2>
+            <div class="ans">
+                2 How do I book a taxi?
+            </div>
+            <h2>3 This Is A Question<span>+</span></h2>
+            <div class="ans">
+                3 How do I book a taxi?
+            </div>
+        </div>
+    </div>
+    <script>
+        let allQuestion = document.querySelectorAll('.faqItem h2') // NodeLIST
+        allQuestion.forEach((questions, index) => {
+            questions.addEventListener('click', () => {
+                allQuestion.forEach((q, i) => {
+                    if (i != index) {
+                        q.lastElementChild.innerHTML = "+"
+                        q.nextElementSibling.classList.remove('showAns')
+                    }
+                })
+                if (questions.lastElementChild.innerHTML == "+") {
+                    questions.lastElementChild.innerHTML = "-"
+                } else {
+                    questions.lastElementChild.innerHTML = "+"
+                }
+                questions.nextElementSibling.classList.toggle('showAns')
+            })
+        })
+
+    </script>
+</body>
+
+</html>
