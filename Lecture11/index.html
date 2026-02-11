@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LECTURE 11</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        .formSection {
+            display: grid;
+            padding: 20px;
+            grid-template-columns: 20% auto;
+            gap: 30px;
+        }
+
+        .formSection form {
+            padding: 15px;
+            box-shadow: 0px 0px 10px 2px #ccc;
+        }
+
+        .formSection form h3 {
+            text-align: center;
+            padding-bottom: 15px;
+        }
+
+        .inputOuter {
+            margin-bottom: 10px;
+        }
+
+        .inputOuter input {
+            width: 100%;
+            height: 30px;
+        }
+
+        .inputOuter label {
+            display: block;
+            font-size: 14px;
+        }
+
+        .formSection form button {
+            width: 100%;
+            border: none;
+            background-color: blue;
+            color: white;
+            padding: 10px 0px;
+            border-radius: 8px;
+        }
+        .error{
+            color: red;
+            font-weight: bold;
+            font-style: 12px;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="formSection">
+        <form>
+            <h3>Enquire Now</h3>
+            <div class="error"></div>
+            <div class="inputOuter">
+                <label for="">Name</label>
+                <input type="text" name="userName">
+            </div>
+            <div class="inputOuter">
+                <label for="">Email</label>
+                <input type="text" name="userEmail">
+            </div>
+            <div class="inputOuter">
+                <label for="">Phone</label>
+                <input type="text" name="userPhone">
+            </div>
+            <button type="submit">Save</button>
+        </form>
+        <div>
+            <table border="1" cellspacing="0" cell-padding="10" style="width: 100%; margin-top:20px ;">
+                <thead>
+                    <tr>
+                        <th>Sr No</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script>
+        let formElement = document.querySelector('.formSection')
+        let userData = [];
+        formElement.addEventListener('submit', (e) => {
+            e.preventDefault()
+            let userName = e.target.userName.value
+            let userEmail = e.target.userEmail.value
+            let userPhone = e.target.userPhone.value
+            let userObj = {
+                userName, userEmail, userPhone
+            }
+            let checkMyEmail = userData.find((item) => item.userEmail == userEmail)
+            let error= document.querySelector(".error")
+            if (checkMyEmail) {
+                error.innerHTML = "Email Already Exist"
+            } else {
+                userData.push(userObj)
+                storeDataInTable()
+            }
+            e.target.reset()
+
+        })
+        let tableBody = document.querySelector("#tableBody")
+        let storeDataInTable = () => {
+            let tableRow = ``
+            userData.forEach((item, index) => {
+                tableRow += `<tr>
+                        <td>${index + 1}</td>
+                        <td>${item.userName}</td>
+                        <td>${item.userEmail}</td>
+                        <td>${item.userPhone}</td>
+                        <td><button data-id=${index}>
+                                Delete
+                            </button></td>
+                    </tr>`
+            })
+            tableBody.innerHTML = tableRow
+            console.log(tableRow);
+
+        }
+        tableBody.addEventListener('click', (e) => {
+            if (e.target.tagName == "BUTTON") {
+                let delId = e.target.getAttribute('data-id')
+                userData.splice(delId, 1);
+                storeDataInTable()
+            }
+        })
+    </script>
+</body>
+
+</html>
